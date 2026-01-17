@@ -19,7 +19,7 @@ class Student:
         self.courses = courses if courses is not None else []
         self.__password = password  # Private variable (Encapsulation)
 
-    # Getter method (password বাইরে থেকে সরাসরি দেখা যাবে না)
+    # Getter method (Encapsulation demo)
     def get_password(self):
         return self.__password
 
@@ -69,7 +69,7 @@ class SchoolManager:
         """
         # roll duplicate check
         if self.find_student_by_roll(student.roll) is not None:
-            print("⚠️ এই রোল নাম্বার আগে থেকেই আছে! অন্য রোল দিন।")
+            print("⚠️ Roll already exists! Enrollment failed.")
             return
 
         with open(self.filename, "a", encoding="utf-8") as f:
@@ -80,7 +80,7 @@ class SchoolManager:
         """
         Read file and print all students
         """
-        print("\n📌 All Students List:")
+        print("\n All Students List:")
         print("-" * 60)
 
         has_data = False
@@ -114,7 +114,7 @@ class SchoolManager:
 
 
 def menu():
-    print("\n====== School Management System ======")
+    print("\n # welcome to School Management System #  ")
     print("1. Enroll New Student")
     print("2. Show All Students")
     print("3. Search Student by Roll")
@@ -158,7 +158,7 @@ def main():
                 print("❌ No student found with this roll.")
 
         elif choice == "4":
-            print("👋 Exiting... Data is saved in students.txt")
+            print(" Exiting... Data is saved in students.txt")
             break
 
         else:
